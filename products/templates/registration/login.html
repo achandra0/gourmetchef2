@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+{% extends 'crm/base.html' %} {% block title %}Log In{% endblock title %} {% block content %}
+<br>
+<h4>Log In Here</h4>
+
+<form method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <br>
+
+    <button class="btn btn-default" type="submit">Log In</button>
+ <br> <br>
+<p><a href="{% url "password_reset" %}">Forgot Password?</a></p>
+</form>
+{% endblock content %}
+
+</html>

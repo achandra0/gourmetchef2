@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'crm/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+   <body>
+   {% if user.is_authenticated %}
+
+       <div class="page-container">
+
+           <h2 class="top-menu"></h2>
+
+       </div>
+   {% endif %}
+   <br>
+   <div class="content container">
+       <div class="row">
+           <div class="col-md-30">
+               <div class="links">
+                   <!-- Example row of columns -->
+                   <div class="row">
+                       <div class="col-md-7">
+                           <div class="thumbnail">
+                               <img src="{% static "images/productjam.jpg" %}" alt="product"/>
+                               <div class="caption">
+                                   <h4><a class="btn btn-default" href="{% url 'products:product_list' %}"
+                                         role="button">Access Products &raquo;</a></h4>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-md-3">
+                           <div class="thumbnail">
+                               <img src="{% static "images/customers.jpg" %}" alt="customer"/>
+                               <div class="caption">
+                                   <h4><a class="btn btn-default" href="{% url 'products:customer_list' %}"
+                                         role="button">Access Customers &raquo;</a></h4>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-md-3">
+                           <div class="thumbnail">
+                               <img src="{% static "images/offer.jpg" %}" alt="offer"/>
+                               <div class="caption">
+                                   <h4><a class="btn btn-default" href="{% url 'products:offer_list' %}"
+                                         role="button">Access Offers &raquo;</a></h4>
+                               </div>
+                           </div>
+                       </div>
+
+
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+   </body>
+
+{% endblock %}
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends 'crm/base.html' %}
+{% block content %}
+
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Gourmet Food Chef</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    </head>
+    <body>
+    <style>
+        body {
+            background-color: white;
+        }
+    </style>
+    <div class="row">
+        <h4 style="padding-left: 15Px">Offers Details</h4>
+    </div>
+    <div>
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>Code</th>
+                <th>Description</th>
+                <th>Discount</th>
+                <th colspan="3">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for offer in offers %}
+                <tr>
+                    <td>{{ offer.code }}</td>
+                    <td>{{ offer.description }}</td>
+                    <td>{{ offer.discount }}</td>
+                    <td><a href="{% url 'products:offer_edit' pk=offer.pk %}"
+                           class="btn btn-default">Edit</a></td>
+                    <td><a href="{% url 'products:offer_delete' pk=offer.pk %}"
+                           onclick="return confirm('Delete the Offer?')"
+                           class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="row">
+         <a href="{% url 'products:offer_new' %}" class="row"><span
+                    class="btn btn-default">Add Offer</span></a>
+     </div>
+
+    </div>
+
+
+    </body>
+{% endblock %}

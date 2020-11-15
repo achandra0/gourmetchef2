@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block body_block %}
+    <h4>Delete {{ product.name }}?</h4>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-danger" value="Delete">
+        <a href="{% url 'products:home' pk=product.product_name %} ">Cancel</a>
+
+    </form>
+
+{% endblock %}
+
+</html>

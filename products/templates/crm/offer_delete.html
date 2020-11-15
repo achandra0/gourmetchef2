@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'crm/base.html' %}
+{% block body_block %}
+    <h4>Delete {{ offer.code }}?</h4>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-danger" value="Delete">
+        <a href="{% url 'products:home' pk=offer.code %} ">Cancel</a>
+
+    </form>
+
+{% endblock %}
+
+</html>
